@@ -20,6 +20,8 @@
 		CD647EE02224BA6A005AD0CE /* MapaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD647EDF2224BA6A005AD0CE /* MapaViewController.swift */; };
 		CD6F2D7A222096160003DC50 /* MenuDeOpcoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F2D79222096160003DC50 /* MenuDeOpcoes.swift */; };
 		CD6F2D7C22209ACA0003DC50 /* Mensagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F2D7B22209ACA0003DC50 /* Mensagem.swift */; };
+		CD844B292224D28C006FB310 /* CalculaMediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD844B282224D28C006FB310 /* CalculaMediaAPI.swift */; };
+		CD844B2B2224EBC6006FB310 /* Notificacoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD844B2A2224EBC6006FB310 /* Notificacoes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		CD647EDF2224BA6A005AD0CE /* MapaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaViewController.swift; sourceTree = "<group>"; };
 		CD6F2D79222096160003DC50 /* MenuDeOpcoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDeOpcoes.swift; sourceTree = "<group>"; };
 		CD6F2D7B22209ACA0003DC50 /* Mensagem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mensagem.swift; sourceTree = "<group>"; };
+		CD844B282224D28C006FB310 /* CalculaMediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculaMediaAPI.swift; sourceTree = "<group>"; };
+		CD844B2A2224EBC6006FB310 /* Notificacoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificacoes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 		03AA17621FC8433E003CB2B8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CD844B272224D1C7006FB310 /* Model */,
 				03AA17641FC8433E003CB2B8 /* View */,
 				03AA17631FC8433E003CB2B8 /* Controller */,
 			);
@@ -140,6 +145,7 @@
 				CD6F2D79222096160003DC50 /* MenuDeOpcoes.swift */,
 				CD6F2D7B22209ACA0003DC50 /* Mensagem.swift */,
 				CD647ED52224AA5A005AD0CE /* Localizacao.swift */,
+				CD844B2A2224EBC6006FB310 /* Notificacoes.swift */,
 			);
 			name = Componentes;
 			path = Agenda/Componentes;
@@ -159,6 +165,14 @@
 				CD647EDF2224BA6A005AD0CE /* MapaViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		CD844B272224D1C7006FB310 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD844B282224D28C006FB310 /* CalculaMediaAPI.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,9 +251,11 @@
 				03AA17661FC84353003CB2B8 /* HomeTableViewController.swift in Sources */,
 				03AA17561FC84154003CB2B8 /* Agenda.xcdatamodeld in Sources */,
 				CD6F2D7A222096160003DC50 /* MenuDeOpcoes.swift in Sources */,
+				CD844B292224D28C006FB310 /* CalculaMediaAPI.swift in Sources */,
 				CD312398221F274200FC73B1 /* ImagePicker.swift in Sources */,
 				03AA17681FC843B1003CB2B8 /* HomeTableViewCell.swift in Sources */,
 				CD6F2D7C22209ACA0003DC50 /* Mensagem.swift in Sources */,
+				CD844B2B2224EBC6006FB310 /* Notificacoes.swift in Sources */,
 				CD647EE02224BA6A005AD0CE /* MapaViewController.swift in Sources */,
 				03AA174E1FC84154003CB2B8 /* AppDelegate.swift in Sources */,
 				CD647ED62224AA5A005AD0CE /* Localizacao.swift in Sources */,
