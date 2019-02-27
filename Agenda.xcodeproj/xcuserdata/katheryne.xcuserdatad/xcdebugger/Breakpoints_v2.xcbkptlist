@@ -26,13 +26,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Agenda/Home/Controller/HomeTableViewController.swift"
-            timestampString = "572846450.137562"
+            timestampString = "572925208.067117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "abrirActionSheet(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Agenda/Home/Controller/HomeTableViewController.swift"
+            timestampString = "572925208.067595"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "contexto"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

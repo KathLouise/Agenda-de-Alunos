@@ -6,6 +6,8 @@
 	<string>Este app necessita ter acesso a sua localização</string>
 	<key>NSAppleEventsUsageDescription</key>
 	<string>Este app necessita ter acesso para enviar SMS</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Este app necessita usar Face ID</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Este app necessita ter acesso a sua galeria</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -57,9 +59,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>waze</string>
-    </array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>waze</string>
+	</array>
 </dict>
 </plist>

@@ -46,11 +46,17 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         self.navigationItem.searchController = searchController
     }
     
-    func recuperaAluno (){
+    func recuperaAluno (filtro:String = ""){
         //Faz o Request para recuperar as informaçoes dos alunos
         let pesquisaAluno: NSFetchRequest<Aluno> = Aluno.fetchRequest();
         //invocando a função de ordenação de A-Z
         let ordenaPorNome = NSSortDescriptor(key: "nome", ascending: true);
+        
+        //Só entra se tiver um filtro de nome
+        if(verificaFiltro(filtro)){
+            pesquisaAluno.predicate = filtraAluno(filtro);
+        }
+        
         //faz a ordenaçao do resultado do request
         pesquisaAluno.sortDescriptors = [ordenaPorNome];
         //recupera os alunos salvos no banco de dados
@@ -156,13 +162,22 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let alunoSelecionado = gerenciadorResultados?.fetchedObjects![indexPath.row] else { return; }
-            contexto.delete(alunoSelecionado);
-            
-            do {
-                try contexto.save();
-            } catch {
-                print(error.localizedDescription);
+            //verifica se o usuário tem permissão para deletar
+            AutenticacaoLocal().confirmacaoDeAutenticacao { (autenticacao) in
+                if(autenticacao){
+                    //Obriga o método a executar na tred principal
+                    DispatchQueue.main.async {
+                        //se tiver, então deleta o aluno selecionado
+                        guard let alunoSelecionado = self.gerenciadorResultados?.fetchedObjects![indexPath.row] else { return; }
+                        self.contexto.delete(alunoSelecionado);
+                        
+                        do {
+                            try self.contexto.save();
+                        } catch {
+                            print(error.localizedDescription);
+                        }
+                    }
+                }
             }
             
         } else if editingStyle == .insert {
@@ -176,6 +191,18 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
             return;
         }
         alunoViewController?.aluno = alunoSelecionado;
+    }
+    
+    //Cria um filtro
+    func filtraAluno (_ filtro: String) -> NSPredicate{
+        return NSPredicate(format: "nome CONTAINS %@", filtro)
+    }
+    
+    func verificaFiltro (_ filtro:String) -> Bool{
+        if (filtro.isEmpty){
+            return false;
+        }
+        return true;
     }
     
     // MARK: - FetchedResultsControllerDelegate
@@ -198,6 +225,21 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         }) { (erro) in
             print(erro.localizedDescription)
         }
+    }
+    
+    // MARK: - SearchBarDelegate
+    
+    // Procura pelo nome do aluno dentro da tableview
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let nomeAluno = searchBar.text else { return; }
+        recuperaAluno(filtro: nomeAluno);
+        tableView.reloadData();
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        recuperaAluno();
+        tableView.reloadData();
     }
     
 }

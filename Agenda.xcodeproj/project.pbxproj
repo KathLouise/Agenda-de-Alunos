@@ -22,6 +22,7 @@
 		CD6F2D7C22209ACA0003DC50 /* Mensagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F2D7B22209ACA0003DC50 /* Mensagem.swift */; };
 		CD844B292224D28C006FB310 /* CalculaMediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD844B282224D28C006FB310 /* CalculaMediaAPI.swift */; };
 		CD844B2B2224EBC6006FB310 /* Notificacoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD844B2A2224EBC6006FB310 /* Notificacoes.swift */; };
+		CD90CC7C2226101E00D6CAA4 /* AutenticacaoLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD90CC7B2226101E00D6CAA4 /* AutenticacaoLocal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		CD6F2D7B22209ACA0003DC50 /* Mensagem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mensagem.swift; sourceTree = "<group>"; };
 		CD844B282224D28C006FB310 /* CalculaMediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculaMediaAPI.swift; sourceTree = "<group>"; };
 		CD844B2A2224EBC6006FB310 /* Notificacoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificacoes.swift; sourceTree = "<group>"; };
+		CD90CC7B2226101E00D6CAA4 /* AutenticacaoLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoLocal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				CD6F2D7B22209ACA0003DC50 /* Mensagem.swift */,
 				CD647ED52224AA5A005AD0CE /* Localizacao.swift */,
 				CD844B2A2224EBC6006FB310 /* Notificacoes.swift */,
+				CD90CC7B2226101E00D6CAA4 /* AutenticacaoLocal.swift */,
 			);
 			name = Componentes;
 			path = Agenda/Componentes;
@@ -259,6 +262,7 @@
 				CD647EE02224BA6A005AD0CE /* MapaViewController.swift in Sources */,
 				03AA174E1FC84154003CB2B8 /* AppDelegate.swift in Sources */,
 				CD647ED62224AA5A005AD0CE /* Localizacao.swift in Sources */,
+				CD90CC7C2226101E00D6CAA4 /* AutenticacaoLocal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
