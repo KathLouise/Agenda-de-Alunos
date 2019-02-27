@@ -7,3 +7,4 @@
 * Esta fazendo requisição a um servidor para que ele calcule a média dos alunos e esta obtendo a resposta do cálculo.
 * Autenticação Local para deletar aluno
 * Implementação de busca pelo nome do aluno
+* Customização do pino central, adição da posição do aluno que esta usando a aplicação em relação ao ponto central, e mostra todos os pinos no mapa

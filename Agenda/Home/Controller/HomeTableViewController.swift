@@ -217,16 +217,6 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         }
     }
     
-    @IBAction func buttonMedia(_ sender: UIBarButtonItem) {
-        guard let listaDeAlunos = gerenciadorResultados?.fetchedObjects else { return }
-        CalculaMediaAPI().calculaMediaDosAlunos(alunos: listaDeAlunos, sucesso: { (dicionario) in
-            let alerta = Notificacoes().exibeMediaGeralDosAlunos(dicionario);
-            self.present(alerta, animated: true, completion: nil);
-        }) { (erro) in
-            print(erro.localizedDescription)
-        }
-    }
-    
     // MARK: - SearchBarDelegate
     
     // Procura pelo nome do aluno dentro da tableview
@@ -242,4 +232,23 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         tableView.reloadData();
     }
     
+    // MARK: - Actions
+    
+    @IBAction func buttonMedia(_ sender: UIBarButtonItem) {
+        guard let listaDeAlunos = gerenciadorResultados?.fetchedObjects else { return }
+        CalculaMediaAPI().calculaMediaDosAlunos(alunos: listaDeAlunos, sucesso: { (dicionario) in
+            let alerta = Notificacoes().exibeMediaGeralDosAlunos(dicionario);
+            self.present(alerta, animated: true, completion: nil);
+        }) { (erro) in
+            print(erro.localizedDescription)
+        }
+    }
+
+    @IBAction func btnLocalizacaoGeral(_ sender: UIBarButtonItem) {
+        //Recupera o viewCOntroller que deve ser usado, no caso o de MAPA
+        let mapa = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapa") as! MapaViewController;
+        //Da um push na view
+        navigationController?.pushViewController(mapa, animated: true);
+        
+    }
 }

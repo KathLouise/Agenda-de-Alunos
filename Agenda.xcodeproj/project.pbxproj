@@ -16,6 +16,8 @@
 		03AA17681FC843B1003CB2B8 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AA17671FC843B1003CB2B8 /* HomeTableViewCell.swift */; };
 		03AA176D1FC8515A003CB2B8 /* AlunoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AA176C1FC8515A003CB2B8 /* AlunoViewController.swift */; };
 		CD312398221F274200FC73B1 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD312397221F274200FC73B1 /* ImagePicker.swift */; };
+		CD3B70BD22262A6400E5001F /* Pino.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3B70BC22262A6400E5001F /* Pino.swift */; };
+		CD3B70BF222701C800E5001F /* icon_caelum.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3B70BE222701C800E5001F /* icon_caelum.png */; };
 		CD647ED62224AA5A005AD0CE /* Localizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD647ED52224AA5A005AD0CE /* Localizacao.swift */; };
 		CD647EE02224BA6A005AD0CE /* MapaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD647EDF2224BA6A005AD0CE /* MapaViewController.swift */; };
 		CD6F2D7A222096160003DC50 /* MenuDeOpcoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F2D79222096160003DC50 /* MenuDeOpcoes.swift */; };
@@ -37,6 +39,8 @@
 		03AA17671FC843B1003CB2B8 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		03AA176C1FC8515A003CB2B8 /* AlunoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoViewController.swift; sourceTree = "<group>"; };
 		CD312397221F274200FC73B1 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		CD3B70BC22262A6400E5001F /* Pino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pino.swift; sourceTree = "<group>"; };
+		CD3B70BE222701C800E5001F /* icon_caelum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_caelum.png; path = ../../Agenda/Agenda/Assets.xcassets/icon_caelum.png; sourceTree = "<group>"; };
 		CD647ED52224AA5A005AD0CE /* Localizacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizacao.swift; sourceTree = "<group>"; };
 		CD647EDF2224BA6A005AD0CE /* MapaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaViewController.swift; sourceTree = "<group>"; };
 		CD6F2D79222096160003DC50 /* MenuDeOpcoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDeOpcoes.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 				03AA17691FC84A2D003CB2B8 /* Alunos */,
 				03AA17511FC84154003CB2B8 /* Main.storyboard */,
 				03AA17571FC84154003CB2B8 /* Assets.xcassets */,
+				CD3B70BE222701C800E5001F /* icon_caelum.png */,
 				03AA17591FC84154003CB2B8 /* LaunchScreen.storyboard */,
 				03AA175C1FC84154003CB2B8 /* Info.plist */,
 				03AA17541FC84154003CB2B8 /* Agenda.xcdatamodeld */,
@@ -154,9 +159,18 @@
 			path = Agenda/Componentes;
 			sourceTree = SOURCE_ROOT;
 		};
+		CD3B70BB2226290500E5001F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD3B70BC22262A6400E5001F /* Pino.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CD647ED72224B9A2005AD0CE /* Mapa */ = {
 			isa = PBXGroup;
 			children = (
+				CD3B70BB2226290500E5001F /* Model */,
 				CD647ED82224B9B3005AD0CE /* Controller */,
 			);
 			path = Mapa;
@@ -238,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03AA175B1FC84154003CB2B8 /* LaunchScreen.storyboard in Resources */,
+				CD3B70BF222701C800E5001F /* icon_caelum.png in Resources */,
 				03AA17581FC84154003CB2B8 /* Assets.xcassets in Resources */,
 				03AA17531FC84154003CB2B8 /* Main.storyboard in Resources */,
 			);
@@ -251,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03AA176D1FC8515A003CB2B8 /* AlunoViewController.swift in Sources */,
+				CD3B70BD22262A6400E5001F /* Pino.swift in Sources */,
 				03AA17661FC84353003CB2B8 /* HomeTableViewController.swift in Sources */,
 				03AA17561FC84154003CB2B8 /* Agenda.xcdatamodeld in Sources */,
 				CD6F2D7A222096160003DC50 /* MenuDeOpcoes.swift in Sources */,
