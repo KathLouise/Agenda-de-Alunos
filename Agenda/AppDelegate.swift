@@ -11,6 +11,10 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    enum TipoDeShortCut: String {
+        case cadastrarAluno = "CadastrarAluno";
+    }
 
     var window: UIWindow?
 
@@ -42,6 +46,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        //verifica se o tipo é o mesmo que foi cadastrado no enum
+        if let tipo = TipoDeShortCut(rawValue: shortcutItem.type){
+            switch tipo {
+            case .cadastrarAluno:
+                //Recupera o viewCOntroller que deve ser usado, no caso o de MAPA
+                let cadastro = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "cadastrar") as! AlunoViewController;
+                //recupera o navigation controller
+                let navigation = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
+                //Da um push na view
+                navigation?.pushViewController(cadastro, animated: true);
+                break;
+                
+            }
+        }
     }
 
     // MARK: - Core Data stack
