@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SafariServices
 
 class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFetchedResultsControllerDelegate {
     
@@ -127,6 +128,21 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
                     mapa.aluno = alunoSelecionado;
                     //Empilha a tela do mapa nativo
                     self.navigationController?.pushViewController(mapa, animated: true);
+                    
+                    break;
+                case .navegador:
+                    if let urlDoAluno = alunoSelecionado.site{
+                        var urlFormatada = urlDoAluno;
+                        //Verifica se a url contem http://
+                        //senão contiver, adiciona
+                        if !urlFormatada.hasPrefix("http://"){
+                            urlFormatada = String(format: "http://%@", urlDoAluno);
+                        }
+                        
+                        guard let url = URL(string: urlFormatada) else { return; }
+                        let safari = SFSafariViewController(url: url);
+                        self.present(safari, animated: true, completion: nil);
+                    }
                     
                     break;
                 }

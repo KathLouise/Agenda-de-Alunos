@@ -273,12 +273,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lT9-zf-05h">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lT9-zf-05h">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lT9-zf-05h" firstAttribute="bottom" secondItem="DQM-AO-KSf" secondAttribute="bottom" id="DC6-rU-pGW"/>
+                            <constraint firstItem="lT9-zf-05h" firstAttribute="leading" secondItem="DQM-AO-KSf" secondAttribute="leading" id="HdB-VB-3kE"/>
+                            <constraint firstItem="lT9-zf-05h" firstAttribute="trailing" secondItem="DQM-AO-KSf" secondAttribute="trailing" id="KTR-lq-Ozb"/>
+                            <constraint firstItem="lT9-zf-05h" firstAttribute="top" secondItem="DQM-AO-KSf" secondAttribute="top" id="UZB-Mf-Kvf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DQM-AO-KSf"/>
                     </view>
                     <connections>

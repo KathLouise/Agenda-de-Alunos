@@ -52,7 +52,7 @@ class Localizacao: NSObject, MKMapViewDelegate {
 
         //Configura a posiçao do botao no mapa
         button.frame.origin.x = 10;
-        button.frame.origin.y = 100;
+        button.frame.origin.y = 10;
         return button;
     }
 }

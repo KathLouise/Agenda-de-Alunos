@@ -13,6 +13,7 @@ enum MenuOpcoesAluno{
     case ligacao
     case waze
     case mapa
+    case navegador
 }
 
 class MenuDeOpcoes: NSObject {
@@ -37,12 +38,17 @@ class MenuDeOpcoes: NSObject {
             completion(.mapa)
         }
         
+        let navegador = UIAlertAction(title: "Abrir no Navegador", style: .default) { (acao) in
+            completion(.navegador)
+        }
+        
         let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         
         menu.addAction(sms);
         menu.addAction(ligacao);
         menu.addAction(waze);
         menu.addAction(mapa);
+        menu.addAction(navegador);
         menu.addAction(cancelar);
         return menu;
     }
