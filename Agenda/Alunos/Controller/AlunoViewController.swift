@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class AlunoViewController: UIViewController, ImagePickerFotoSelecionada {
     
@@ -25,11 +24,6 @@ class AlunoViewController: UIViewController, ImagePickerFotoSelecionada {
     @IBOutlet weak var textFieldNota: UITextField!
     
     // MARK: - Atributos
-    //Criação do contexto
-    var contexto: NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate;
-        return appDelegate.persistentContainer.viewContext;
-    }
     
     let imagePicker = ImagePicker();
     var aluno: Aluno?;
@@ -90,6 +84,25 @@ class AlunoViewController: UIViewController, ImagePickerFotoSelecionada {
         self.present(multimidia, animated: true, completion: nil);
     }
     
+    func MontaDicionarioDeParamentros() -> Dictionary<String, String> {
+        guard let nome = textFieldNome.text else { return [:]; }
+        guard let endereco = textFieldEndereco.text else { return [:]; }
+        guard let telefone = textFieldTelefone.text else { return [:]; }
+        guard let site = textFieldSite.text else { return [:]; }
+        guard let nota = textFieldNota.text else { return [:]; }
+        
+        let dicionario:Dictionary <String,String> = [
+            "id" : String(describing: UUID()),
+            "nome": nome,
+            "endereco": endereco,
+            "telefone": telefone,
+            "site": site,
+            "nota": nota
+        ];
+        
+        return dicionario;
+    }
+    
     // MARK: - IBActions
     
     @IBAction func buttonFoto(_ sender: UIButton) {
@@ -106,26 +119,9 @@ class AlunoViewController: UIViewController, ImagePickerFotoSelecionada {
     }
     
     @IBAction func buttonSalvar(_ sender: Any) {
-        //Se o aluno não existir, cria um novo
-        //Caso contrário, faz update do existente
-        if (aluno == nil){
-           aluno = Aluno(context: contexto);
-        }
-        
-        aluno?.nome = textFieldNome.text;
-        aluno?.endereco = textFieldEndereco.text;
-        aluno?.telefone = textFieldTelefone.text;
-        aluno?.site = textFieldSite.text;
-        //transforma o valor de texto em double
-        aluno?.nota = (textFieldNota.text! as NSString).doubleValue;
-        aluno?.foto = imageAluno.image;
-        
-        do{
-            try contexto.save();
-            navigationController?.popViewController(animated: true);
-        } catch{
-            print(error.localizedDescription)
-        }
+        let json = MontaDicionarioDeParamentros();
+        Repositorio().salvaAluno(json, imageAluno);
+        navigationController?.popViewController(animated: true);
 
     }
     

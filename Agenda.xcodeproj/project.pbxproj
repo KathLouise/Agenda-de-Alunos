@@ -15,9 +15,13 @@
 		03AA17661FC84353003CB2B8 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AA17651FC84353003CB2B8 /* HomeTableViewController.swift */; };
 		03AA17681FC843B1003CB2B8 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AA17671FC843B1003CB2B8 /* HomeTableViewCell.swift */; };
 		03AA176D1FC8515A003CB2B8 /* AlunoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AA176C1FC8515A003CB2B8 /* AlunoViewController.swift */; };
+		6EF3A6817895D5DA9686B7EE /* Pods_Agenda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB0AA60B5E59A45BE38916B /* Pods_Agenda.framework */; };
+		CD07E96022319431000E48F7 /* AlunoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07E95F22319431000E48F7 /* AlunoAPI.swift */; };
+		CD07E96222319ACC000E48F7 /* icon_caelum.png in Resources */ = {isa = PBXBuildFile; fileRef = CD07E96122319ACC000E48F7 /* icon_caelum.png */; };
+		CD07E9642231AE1D000E48F7 /* Repositorio.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07E9632231AE1D000E48F7 /* Repositorio.swift */; };
+		CD07E9672231AF07000E48F7 /* AlunoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07E9662231AF07000E48F7 /* AlunoDao.swift */; };
 		CD312398221F274200FC73B1 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD312397221F274200FC73B1 /* ImagePicker.swift */; };
 		CD3B70BD22262A6400E5001F /* Pino.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3B70BC22262A6400E5001F /* Pino.swift */; };
-		CD3B70BF222701C800E5001F /* icon_caelum.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3B70BE222701C800E5001F /* icon_caelum.png */; };
 		CD647ED62224AA5A005AD0CE /* Localizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD647ED52224AA5A005AD0CE /* Localizacao.swift */; };
 		CD647EE02224BA6A005AD0CE /* MapaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD647EDF2224BA6A005AD0CE /* MapaViewController.swift */; };
 		CD6F2D7A222096160003DC50 /* MenuDeOpcoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6F2D79222096160003DC50 /* MenuDeOpcoes.swift */; };
@@ -38,9 +42,13 @@
 		03AA17651FC84353003CB2B8 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		03AA17671FC843B1003CB2B8 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		03AA176C1FC8515A003CB2B8 /* AlunoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoViewController.swift; sourceTree = "<group>"; };
+		0EB0AA60B5E59A45BE38916B /* Pods_Agenda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Agenda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD07E95F22319431000E48F7 /* AlunoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoAPI.swift; sourceTree = "<group>"; };
+		CD07E96122319ACC000E48F7 /* icon_caelum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_caelum.png; path = Assets.xcassets/icon_caelum.imageset/icon_caelum.png; sourceTree = "<group>"; };
+		CD07E9632231AE1D000E48F7 /* Repositorio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositorio.swift; sourceTree = "<group>"; };
+		CD07E9662231AF07000E48F7 /* AlunoDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoDao.swift; sourceTree = "<group>"; };
 		CD312397221F274200FC73B1 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		CD3B70BC22262A6400E5001F /* Pino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pino.swift; sourceTree = "<group>"; };
-		CD3B70BE222701C800E5001F /* icon_caelum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_caelum.png; path = ../../Agenda/Agenda/Assets.xcassets/icon_caelum.png; sourceTree = "<group>"; };
 		CD647ED52224AA5A005AD0CE /* Localizacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizacao.swift; sourceTree = "<group>"; };
 		CD647EDF2224BA6A005AD0CE /* MapaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaViewController.swift; sourceTree = "<group>"; };
 		CD6F2D79222096160003DC50 /* MenuDeOpcoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDeOpcoes.swift; sourceTree = "<group>"; };
@@ -48,6 +56,8 @@
 		CD844B282224D28C006FB310 /* CalculaMediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculaMediaAPI.swift; sourceTree = "<group>"; };
 		CD844B2A2224EBC6006FB310 /* Notificacoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificacoes.swift; sourceTree = "<group>"; };
 		CD90CC7B2226101E00D6CAA4 /* AutenticacaoLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoLocal.swift; sourceTree = "<group>"; };
+		DAB8B6D0CC492931429E4523 /* Pods-Agenda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agenda.debug.xcconfig"; path = "Target Support Files/Pods-Agenda/Pods-Agenda.debug.xcconfig"; sourceTree = "<group>"; };
+		FABE8BAE59E4D2421A2FD3AF /* Pods-Agenda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agenda.release.xcconfig"; path = "Target Support Files/Pods-Agenda/Pods-Agenda.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EF3A6817895D5DA9686B7EE /* Pods_Agenda.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +77,8 @@
 			children = (
 				03AA174C1FC84154003CB2B8 /* Agenda */,
 				03AA174B1FC84154003CB2B8 /* Products */,
+				15DEA67F01D60C712FC9C1DD /* Pods */,
+				3343F25052174641083651CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,7 +100,7 @@
 				03AA17691FC84A2D003CB2B8 /* Alunos */,
 				03AA17511FC84154003CB2B8 /* Main.storyboard */,
 				03AA17571FC84154003CB2B8 /* Assets.xcassets */,
-				CD3B70BE222701C800E5001F /* icon_caelum.png */,
+				CD07E96122319ACC000E48F7 /* icon_caelum.png */,
 				03AA17591FC84154003CB2B8 /* LaunchScreen.storyboard */,
 				03AA175C1FC84154003CB2B8 /* Info.plist */,
 				03AA17541FC84154003CB2B8 /* Agenda.xcdatamodeld */,
@@ -124,6 +137,7 @@
 		03AA17691FC84A2D003CB2B8 /* Alunos */ = {
 			isa = PBXGroup;
 			children = (
+				CD07E95E2231940D000E48F7 /* Model */,
 				03AA176B1FC84A2D003CB2B8 /* View */,
 				03AA176A1FC84A2D003CB2B8 /* Controller */,
 			);
@@ -143,6 +157,33 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		15DEA67F01D60C712FC9C1DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAB8B6D0CC492931429E4523 /* Pods-Agenda.debug.xcconfig */,
+				FABE8BAE59E4D2421A2FD3AF /* Pods-Agenda.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3343F25052174641083651CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EB0AA60B5E59A45BE38916B /* Pods_Agenda.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD07E95E2231940D000E48F7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD07E95F22319431000E48F7 /* AlunoAPI.swift */,
+				CD07E9632231AE1D000E48F7 /* Repositorio.swift */,
+				CD07E9662231AF07000E48F7 /* AlunoDao.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CD312396221F270B00FC73B1 /* Componentes */ = {
@@ -199,9 +240,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03AA175F1FC84154003CB2B8 /* Build configuration list for PBXNativeTarget "Agenda" */;
 			buildPhases = (
+				7E5DD26A45F776DDDBBC586F /* [CP] Check Pods Manifest.lock */,
 				03AA17461FC84154003CB2B8 /* Sources */,
 				03AA17471FC84154003CB2B8 /* Frameworks */,
 				03AA17481FC84154003CB2B8 /* Resources */,
+				ED3F132625066006BA8FBBFA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,13 +295,60 @@
 			buildActionMask = 2147483647;
 			files = (
 				03AA175B1FC84154003CB2B8 /* LaunchScreen.storyboard in Resources */,
-				CD3B70BF222701C800E5001F /* icon_caelum.png in Resources */,
+				CD07E96222319ACC000E48F7 /* icon_caelum.png in Resources */,
 				03AA17581FC84154003CB2B8 /* Assets.xcassets in Resources */,
 				03AA17531FC84154003CB2B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E5DD26A45F776DDDBBC586F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Agenda-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED3F132625066006BA8FBBFA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Agenda/Pods-Agenda-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Agenda/Pods-Agenda-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		03AA17461FC84154003CB2B8 /* Sources */ = {
@@ -267,6 +357,7 @@
 			files = (
 				03AA176D1FC8515A003CB2B8 /* AlunoViewController.swift in Sources */,
 				CD3B70BD22262A6400E5001F /* Pino.swift in Sources */,
+				CD07E96022319431000E48F7 /* AlunoAPI.swift in Sources */,
 				03AA17661FC84353003CB2B8 /* HomeTableViewController.swift in Sources */,
 				03AA17561FC84154003CB2B8 /* Agenda.xcdatamodeld in Sources */,
 				CD6F2D7A222096160003DC50 /* MenuDeOpcoes.swift in Sources */,
@@ -275,7 +366,9 @@
 				03AA17681FC843B1003CB2B8 /* HomeTableViewCell.swift in Sources */,
 				CD6F2D7C22209ACA0003DC50 /* Mensagem.swift in Sources */,
 				CD844B2B2224EBC6006FB310 /* Notificacoes.swift in Sources */,
+				CD07E9642231AE1D000E48F7 /* Repositorio.swift in Sources */,
 				CD647EE02224BA6A005AD0CE /* MapaViewController.swift in Sources */,
+				CD07E9672231AF07000E48F7 /* AlunoDao.swift in Sources */,
 				03AA174E1FC84154003CB2B8 /* AppDelegate.swift in Sources */,
 				CD647ED62224AA5A005AD0CE /* Localizacao.swift in Sources */,
 				CD90CC7C2226101E00D6CAA4 /* AutenticacaoLocal.swift in Sources */,
@@ -413,6 +506,7 @@
 		};
 		03AA17601FC84154003CB2B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAB8B6D0CC492931429E4523 /* Pods-Agenda.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -428,6 +522,7 @@
 		};
 		03AA17611FC84154003CB2B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FABE8BAE59E4D2421A2FD3AF /* Pods-Agenda.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

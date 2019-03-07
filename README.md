@@ -10,4 +10,9 @@
 * Customização do pino central, adição da posição do aluno que esta usando a aplicação em relação ao ponto central, e mostra todos os pinos no mapa
 * Adicionando um Quick Action
 * Adicionando a funcionalidade para abrir a pagina web do aluno usando Safari Services
+* Adição de um ícone para o app
+
+# Curso com WebServices
+* Adição do Alamofire ao projeto para fazer as requisiçoes do servidor local
+* Isolamento das camadas de persistencia atraves dos arquivos DAO e API
 
