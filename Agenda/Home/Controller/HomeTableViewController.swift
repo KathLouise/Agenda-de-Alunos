@@ -10,26 +10,23 @@ import UIKit
 import CoreData
 import SafariServices
 
-class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFetchedResultsControllerDelegate {
+class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     
     //MARK: - Variáveis
-    
     let searchController = UISearchController(searchResultsController: nil)
-    var gerenciadorResultados: NSFetchedResultsController<Aluno>?
-    //Criação do contexto
-    var contexto: NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate;
-        return appDelegate.persistentContainer.viewContext;
-    }
     var alunoViewController: AlunoViewController?;
     var mensagem = Mensagem();
+    var alunos:Array<Aluno> = [];
     
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configuraSearch()
-        self.recuperaAluno()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        recuperaAluno();
     }
     
     // MARK: - Métodos
@@ -47,46 +44,24 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         self.navigationItem.searchController = searchController
     }
     
-    func recuperaAluno (filtro:String = ""){
-        //Faz o Request para recuperar as informaçoes dos alunos
-        let pesquisaAluno: NSFetchRequest<Aluno> = Aluno.fetchRequest();
-        //invocando a função de ordenação de A-Z
-        let ordenaPorNome = NSSortDescriptor(key: "nome", ascending: true);
-        
-        //Só entra se tiver um filtro de nome
-        if(verificaFiltro(filtro)){
-            pesquisaAluno.predicate = filtraAluno(filtro);
+    func recuperaAluno(){
+        Repositorio().recuperaAlunos { (listaDeAlunos) in
+            self.alunos = listaDeAlunos;
+            self.tableView.reloadData();
         }
-        
-        //faz a ordenaçao do resultado do request
-        pesquisaAluno.sortDescriptors = [ordenaPorNome];
-        //recupera os alunos salvos no banco de dados
-        gerenciadorResultados = NSFetchedResultsController(fetchRequest: pesquisaAluno, managedObjectContext: contexto, sectionNameKeyPath: nil, cacheName: nil);
-        gerenciadorResultados?.delegate = self;
-    
-        do{
-            try gerenciadorResultados?.performFetch()
-        } catch {
-            print(error.localizedDescription)
-        }
-        
     }
     
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let contadorListaDeAlunos = gerenciadorResultados?.fetchedObjects?.count
-            else {
-                return 0;
-        }
-        return contadorListaDeAlunos;
+        return alunos.count;
     }
     
     //Evento para abrir o menu de opçoes com Long Press
     @objc func abrirActionSheet (_ longPress:UILongPressGestureRecognizer){
         if longPress.state == .began{
             //recupero o aluno que sofreu long press
-            guard let alunoSelecionado = gerenciadorResultados?.fetchedObjects?[(longPress.view?.tag)!] else { return }
+            let alunoSelecionado = alunos[(longPress.view?.tag)!]
             //Cria o menu com as opçoes
             let menu = MenuDeOpcoes().configuraMenuAluno(completion: { (opcao) in
                 switch opcao{
@@ -159,11 +134,7 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(abrirActionSheet(_:)))
         
         //Pega o aluno da linha que esta sendo passada
-        guard let aluno = gerenciadorResultados?.fetchedObjects![indexPath.row]
-            else {
-                //se não conseguir retorna a celula vazia
-                return cell;
-        }
+        let aluno = alunos[indexPath.row]
         
         cell.configuraCelula(aluno);
         //Adiciona o evento de LongPress a celula selecionada
@@ -184,14 +155,14 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
                     //Obriga o método a executar na tred principal
                     DispatchQueue.main.async {
                         //se tiver, então deleta o aluno selecionado
-                        guard let alunoSelecionado = self.gerenciadorResultados?.fetchedObjects![indexPath.row] else { return; }
+                       /* let alunoSelecionado = self.alunos[indexPath.row]
                         self.contexto.delete(alunoSelecionado);
                         
                         do {
                             try self.contexto.save();
                         } catch {
                             print(error.localizedDescription);
-                        }
+                        }*/
                     }
                 }
             }
@@ -203,22 +174,8 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Pegando o aluno que vai ser editado
-        guard let alunoSelecionado = gerenciadorResultados?.fetchedObjects![indexPath.row] else {
-            return;
-        }
+        let alunoSelecionado = alunos[indexPath.row]
         alunoViewController?.aluno = alunoSelecionado;
-    }
-    
-    //Cria um filtro
-    func filtraAluno (_ filtro: String) -> NSPredicate{
-        return NSPredicate(format: "nome CONTAINS %@", filtro)
-    }
-    
-    func verificaFiltro (_ filtro:String) -> Bool{
-        if (filtro.isEmpty){
-            return false;
-        }
-        return true;
     }
     
     // MARK: - FetchedResultsControllerDelegate
@@ -237,22 +194,18 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate, NSFet
     
     // Procura pelo nome do aluno dentro da tableview
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let nomeAluno = searchBar.text else { return; }
-        recuperaAluno(filtro: nomeAluno);
-        tableView.reloadData();
+     
         
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        recuperaAluno();
-        tableView.reloadData();
+       
     }
     
     // MARK: - Actions
     
     @IBAction func buttonMedia(_ sender: UIBarButtonItem) {
-        guard let listaDeAlunos = gerenciadorResultados?.fetchedObjects else { return }
-        CalculaMediaAPI().calculaMediaDosAlunos(alunos: listaDeAlunos, sucesso: { (dicionario) in
+        CalculaMediaAPI().calculaMediaDosAlunos(alunos: alunos, sucesso: { (dicionario) in
             let alerta = Notificacoes().exibeMediaGeralDosAlunos(dicionario);
             self.present(alerta, animated: true, completion: nil);
         }) { (erro) in
