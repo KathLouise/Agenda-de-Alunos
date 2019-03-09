@@ -17,5 +17,8 @@
 * Adição do Alamofire ao projeto para fazer as requisiçoes do servidor local
 * Isolamento das camadas de persistencia atraves dos arquivos DAO e API
 * Serialização de JSON de retorno do servidor para poder recuperar os dados para por no app
+* Unificação de ID para criação de alunos
+* Atualizaçao/criação de alunos no servidor através da verificação de ID
+* Fazer requisição HTTP para atualização do aluno no servidor
 
 
