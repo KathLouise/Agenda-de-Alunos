@@ -8,38 +8,36 @@
 
 import UIKit
 
-enum MenuOpcoesAluno{
-    case sms
-    case ligacao
-    case waze
-    case mapa
-    case navegador
-}
-
 class MenuDeOpcoes: NSObject {
-    func configuraMenuAluno(completion:@escaping (_ opcao:MenuOpcoesAluno) -> Void) -> UIAlertController{
+    func configuraMenuAluno(_ aluno: Aluno, navigationController: UINavigationController) -> UIAlertController{
         let mensagem = "Escolhe uma das opções abaixo";
         
         let menu = UIAlertController(title: "Menu de Opções", message: mensagem, preferredStyle: .actionSheet);
+        guard let viewController = navigationController.viewControllers.last else { return menu; }
         
         let sms = UIAlertAction(title: "Enviar sms", style: .default) { (acao) in
-            completion(.sms);
+            Mensagem().enviaSMS(aluno, controller: viewController);
         }
         
         let ligacao = UIAlertAction(title: "Ligar", style: .default) { (acao) in
-            completion(.ligacao);
+            LigacaoTelefonica().fazLigacao(aluno);
         }
         
         let waze = UIAlertAction(title: "Localizar no Waze", style: .default) { (acao) in
-            completion(.waze);
+            Localizacao().localizaAlunoNoWaze(aluno);
         }
         
         let mapa = UIAlertAction(title: "Localizar no Mapa", style: .default) { (acao) in
-            completion(.mapa)
+            //Cria uma constante de MapaViewController
+            let mapa = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapa") as! MapaViewController;
+            //Pega o aluno que sofreu longPress
+            mapa.aluno = aluno;
+            //Empilha a tela do mapa nativo
+            navigationController.pushViewController(mapa, animated: true);
         }
         
         let navegador = UIAlertAction(title: "Abrir no Navegador", style: .default) { (acao) in
-            completion(.navegador)
+            Safari().abrirPaginaWeb(aluno, controller: viewController);
         }
         
         let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)

@@ -7,15 +7,12 @@
 //
 
 import UIKit
-import CoreData
-import SafariServices
 
 class HomeTableViewController: UITableViewController, UISearchBarDelegate {
     
     //MARK: - Variáveis
     let searchController = UISearchController(searchResultsController: nil)
     var alunoViewController: AlunoViewController?;
-    var mensagem = Mensagem();
     var alunos:Array<Aluno> = [];
     
     // MARK: - View Lifecycle
@@ -62,66 +59,10 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
         if longPress.state == .began{
             //recupero o aluno que sofreu long press
             let alunoSelecionado = alunos[(longPress.view?.tag)!]
+            guard let navigation = navigationController else { return; }
+            
             //Cria o menu com as opçoes
-            let menu = MenuDeOpcoes().configuraMenuAluno(completion: { (opcao) in
-                switch opcao{
-                case .sms:
-                    //configura para abrir o app padrão de mensagem do IOS
-                    if let componetMensagem = self.mensagem.configuraSMS(alunoSelecionado){
-                        componetMensagem.messageComposeDelegate = self.mensagem
-                        self.present(componetMensagem, animated: true, completion: nil);
-                    }
-                    break;
-                case .ligacao:
-                    guard let numeroAluno = alunoSelecionado.telefone else { return; }
-                    //Verifica se existe um numero do aluno e se pode abrir o app de ligacao
-                    if let url = URL(string: "tel://\(numeroAluno)"), UIApplication.shared.canOpenURL(url){
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    }
-                    break;
-                case .waze:
-                    //Verifica se o waze esta instalado, se estiver executa o código do if
-                    if UIApplication.shared.canOpenURL(URL(string: "waze://")!){
-                        //tenta extrair o endereço do aluno
-                        guard let enderecoAluno = alunoSelecionado.endereco else { return; }
-                        //Do endereço extrai as coordenadas
-                        Localizacao().converteEnderecoEmCoordenadas(endereco: enderecoAluno, coordenada: { (coordenada) in
-                            //Pega a latitude e converte em string
-                            let latitude = String(describing: coordenada.location!.coordinate.latitude);
-                            //Pega a longitude e converte em string
-                            let longitude = String(describing: coordenada.location!.coordinate.longitude);
-                            //COmpoem uma url para poder abrir o waze
-                            let url = "waze://?ll=\(latitude),\(longitude)&navigation=yes";
-                            UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil);
-                        })
-                    }
-                    break;
-                case .mapa:
-                    //Cria uma constante de MapaViewController
-                    let mapa = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapa") as! MapaViewController;
-                    //Pega o aluno que sofreu longPress
-                    mapa.aluno = alunoSelecionado;
-                    //Empilha a tela do mapa nativo
-                    self.navigationController?.pushViewController(mapa, animated: true);
-                    
-                    break;
-                case .navegador:
-                    if let urlDoAluno = alunoSelecionado.site{
-                        var urlFormatada = urlDoAluno;
-                        //Verifica se a url contem http://
-                        //senão contiver, adiciona
-                        if !urlFormatada.hasPrefix("http://"){
-                            urlFormatada = String(format: "http://%@", urlDoAluno);
-                        }
-                        
-                        guard let url = URL(string: urlFormatada) else { return; }
-                        let safari = SFSafariViewController(url: url);
-                        self.present(safari, animated: true, completion: nil);
-                    }
-                    
-                    break;
-                }
-            })
+            let menu = MenuDeOpcoes().configuraMenuAluno(alunoSelecionado, navigationController: navigation);
             self.present(menu, animated: true, completion: nil);
         }
     }
@@ -174,28 +115,19 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
         alunoViewController?.aluno = alunoSelecionado;
     }
     
-    // MARK: - FetchedResultsControllerDelegate
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .delete:
-            guard let indexPath = indexPath else {return}
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            break;
-        default:
-            tableView.reloadData()
-        }
-    }
-    
     // MARK: - SearchBarDelegate
     
     // Procura pelo nome do aluno dentro da tableview
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-     
-        
+        if let textoProcurado = searchBar.text {
+            alunos = Filtro().filtraAlunos(alunos, textoProcurado);
+        }
+        tableView.reloadData();
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-       
+        alunos = AlunoDao().recuperaAluno();
+        tableView.reloadData();
     }
     
     // MARK: - Actions

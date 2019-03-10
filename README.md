@@ -23,4 +23,5 @@
 * Refatoração do metodo de deletar alunos local, para que ele ficasse na classe de AlunosDao e a chamada dentro da classe de Repositorio
 * Construçao do método para detelar alunos do servidor
 * Sincronização de dados entre app e servidor através do uso do metodo applicationDidBecomeActive() do AppDelegate
+* Refatoração de código para melhorar a manutenção
 

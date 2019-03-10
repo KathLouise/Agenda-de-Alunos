@@ -29,6 +29,9 @@
 		CD844B292224D28C006FB310 /* CalculaMediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD844B282224D28C006FB310 /* CalculaMediaAPI.swift */; };
 		CD844B2B2224EBC6006FB310 /* Notificacoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD844B2A2224EBC6006FB310 /* Notificacoes.swift */; };
 		CD90CC7C2226101E00D6CAA4 /* AutenticacaoLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD90CC7B2226101E00D6CAA4 /* AutenticacaoLocal.swift */; };
+		CDAAF0822235567800FEDF57 /* LigacaoTelefonica.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAAF0812235567800FEDF57 /* LigacaoTelefonica.swift */; };
+		CDAAF086223558E400FEDF57 /* Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAAF085223558E400FEDF57 /* Safari.swift */; };
+		CDAAF08822355B2500FEDF57 /* Filtro.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAAF08722355B2500FEDF57 /* Filtro.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		CD844B282224D28C006FB310 /* CalculaMediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculaMediaAPI.swift; sourceTree = "<group>"; };
 		CD844B2A2224EBC6006FB310 /* Notificacoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificacoes.swift; sourceTree = "<group>"; };
 		CD90CC7B2226101E00D6CAA4 /* AutenticacaoLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoLocal.swift; sourceTree = "<group>"; };
+		CDAAF0812235567800FEDF57 /* LigacaoTelefonica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigacaoTelefonica.swift; sourceTree = "<group>"; };
+		CDAAF085223558E400FEDF57 /* Safari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safari.swift; sourceTree = "<group>"; };
+		CDAAF08722355B2500FEDF57 /* Filtro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filtro.swift; sourceTree = "<group>"; };
 		DAB8B6D0CC492931429E4523 /* Pods-Agenda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agenda.debug.xcconfig"; path = "Target Support Files/Pods-Agenda/Pods-Agenda.debug.xcconfig"; sourceTree = "<group>"; };
 		FABE8BAE59E4D2421A2FD3AF /* Pods-Agenda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agenda.release.xcconfig"; path = "Target Support Files/Pods-Agenda/Pods-Agenda.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +201,9 @@
 				CD647ED52224AA5A005AD0CE /* Localizacao.swift */,
 				CD844B2A2224EBC6006FB310 /* Notificacoes.swift */,
 				CD90CC7B2226101E00D6CAA4 /* AutenticacaoLocal.swift */,
+				CDAAF0812235567800FEDF57 /* LigacaoTelefonica.swift */,
+				CDAAF085223558E400FEDF57 /* Safari.swift */,
+				CDAAF08722355B2500FEDF57 /* Filtro.swift */,
 			);
 			name = Componentes;
 			path = Agenda/Componentes;
@@ -358,7 +367,9 @@
 				03AA176D1FC8515A003CB2B8 /* AlunoViewController.swift in Sources */,
 				CD3B70BD22262A6400E5001F /* Pino.swift in Sources */,
 				CD07E96022319431000E48F7 /* AlunoAPI.swift in Sources */,
+				CDAAF08822355B2500FEDF57 /* Filtro.swift in Sources */,
 				03AA17661FC84353003CB2B8 /* HomeTableViewController.swift in Sources */,
+				CDAAF086223558E400FEDF57 /* Safari.swift in Sources */,
 				03AA17561FC84154003CB2B8 /* Agenda.xcdatamodeld in Sources */,
 				CD6F2D7A222096160003DC50 /* MenuDeOpcoes.swift in Sources */,
 				CD844B292224D28C006FB310 /* CalculaMediaAPI.swift in Sources */,
@@ -367,6 +378,7 @@
 				CD6F2D7C22209ACA0003DC50 /* Mensagem.swift in Sources */,
 				CD844B2B2224EBC6006FB310 /* Notificacoes.swift in Sources */,
 				CD07E9642231AE1D000E48F7 /* Repositorio.swift in Sources */,
+				CDAAF0822235567800FEDF57 /* LigacaoTelefonica.swift in Sources */,
 				CD647EE02224BA6A005AD0CE /* MapaViewController.swift in Sources */,
 				CD07E9672231AF07000E48F7 /* AlunoDao.swift in Sources */,
 				03AA174E1FC84154003CB2B8 /* AppDelegate.swift in Sources */,
