@@ -20,5 +20,7 @@
 * Unificação de ID para criação de alunos
 * Atualizaçao/criação de alunos no servidor através da verificação de ID
 * Fazer requisição HTTP para atualização do aluno no servidor
-
+* Refatoração do metodo de deletar alunos local, para que ele ficasse na classe de AlunosDao e a chamada dentro da classe de Repositorio
+* Construçao do método para detelar alunos do servidor
+* Sincronização de dados entre app e servidor através do uso do metodo applicationDidBecomeActive() do AppDelegate
 

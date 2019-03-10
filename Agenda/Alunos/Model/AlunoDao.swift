@@ -40,10 +40,9 @@ class AlunoDao: NSObject {
         return listaDeAlunos;
     }
     
+    //Se o aluno não existir, cria um novo
+    //Caso contrário, faz update do existente
     func salvaAlunoDao(_ dicionarioDeAluno: Dictionary<String,Any>, _ imageAluno: UIImageView?) {
-        //Se o aluno não existir, cria um novo
-        //Caso contrário, faz update do existente
-        
         var aluno: NSManagedObject?
         guard let id = UUID(uuidString: (dicionarioDeAluno["id"] as? String)!) else { return; }
         
@@ -76,6 +75,11 @@ class AlunoDao: NSObject {
             aluno?.setValue(imagem.image, forKey: "foto")
         }
         
+        atualizaContexto();
+    }
+    
+    func deletaAluno(_ aluno: Aluno){
+        contexto.delete(aluno);
         atualizaContexto();
     }
     

@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 
 class AlunoAPI: NSObject {
+    
     //MARK: - GET
     func recuperaAlunosDoServidor(completion:@escaping() -> Void) {
         AF.request("http://localhost:8080/api/aluno", method: .get).responseJSON { (response) in
@@ -31,7 +32,6 @@ class AlunoAPI: NSObject {
                 break;
             }
         }
-        
     }
     
     //MARK: - PUT
@@ -49,7 +49,33 @@ class AlunoAPI: NSObject {
         requisicao.httpBody = json;
         //Monta o tipo e o cabeçalho da requisicao
         requisicao.addValue("application/json", forHTTPHeaderField: "Content-Type");
-        AF.request(requisicao);
+        AF.request(requisicao).responseJSON { (response) in
+            switch response.result{
+            case .failure:
+                if let error = response.error {
+                    print(error.localizedDescription);
+                }
+                break;
+            default:
+                break;
+            }
+        };
+    }
+    
+    //MARK: - DELETE
+    
+    func deletaAluno(id: String){
+        AF.request("http://localhost:8080/api/aluno/\(id)", method: .delete).responseJSON { (response) in
+            switch response.result{
+            case .failure:
+                if let error = response.error {
+                    print(error.localizedDescription);
+                }
+                break;
+            default:
+                break;
+            }
+        }
     }
 
 }

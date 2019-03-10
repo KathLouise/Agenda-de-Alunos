@@ -155,14 +155,10 @@ class HomeTableViewController: UITableViewController, UISearchBarDelegate {
                     //Obriga o método a executar na tred principal
                     DispatchQueue.main.async {
                         //se tiver, então deleta o aluno selecionado
-                       /* let alunoSelecionado = self.alunos[indexPath.row]
-                        self.contexto.delete(alunoSelecionado);
-                        
-                        do {
-                            try self.contexto.save();
-                        } catch {
-                            print(error.localizedDescription);
-                        }*/
+                        let alunoSelecionado = self.alunos[indexPath.row]
+                        Repositorio().deletaAluno(alunoSelecionado);
+                        self.alunos.remove(at: indexPath.row);
+                        self.tableView.deleteRows(at: [indexPath], with: .fade);
                     }
                 }
             }
